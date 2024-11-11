@@ -1,0 +1,18 @@
+<ptp-book-list-header></ptp-book-list-header>
+@if (books().length) {
+  <div class="book-container">
+    @for (book of books(); track book.id) {
+      <ptp-book-card
+        @fadeInFadeOut
+        [book]="book"
+        (deleteClick)="onBookDeleteClick(book)"
+        (editClick)="onBookEditClick(book)"
+        (click)="onBookClick(book)"
+      ></ptp-book-card>
+    }
+  </div>
+} @else if (emptyListText) {
+  <div class="empty-list">
+    {{ emptyListText }}
+  </div>
+}

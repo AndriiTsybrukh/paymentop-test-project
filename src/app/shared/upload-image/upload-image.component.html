@@ -1,0 +1,15 @@
+@if (file()) {
+  <div class="image-container">
+    <img [src]="file()" alt="Uploaded Image" class="preview-image" />
+  </div>
+}
+
+<label class="custom-file-upload" [class.with-file]="file()">
+  <input
+    type="file"
+    accept="image/png, image/jpeg, image/webp"
+    (change)="onFileSelected($event)"
+  />
+  Upload Image
+  <mat-icon fontIcon="upload-file" color="upload-file-icon"></mat-icon>
+</label>

@@ -1,0 +1,38 @@
+<mat-card class="book-card" appearance="outlined">
+  <mat-card-header class="book-card-header">
+    <mat-card-title class="book-card-name">
+      {{ book().name || "-" }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ book().author || "-" }}, {{ book().year || "-" }}
+    </mat-card-subtitle>
+    <div class="book-card-actions">
+      <button
+        mat-icon-button
+        (click)="$event.stopPropagation(); editClick.emit()"
+        matTooltip="Edit Book"
+        matTooltipPosition="above"
+      >
+        <mat-icon fontIcon="edit"></mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        (click)="$event.stopPropagation(); deleteClick.emit()"
+        matTooltip="Delete Book"
+        matTooltipPosition="above"
+      >
+        <mat-icon fontIcon="delete"></mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="book-card-image-wrapper">
+      <img
+        class="book-card-image"
+        [src]="book().image || 'images/no-image.webp'"
+        alt="Book image"
+      />
+      <div class="book-card-interact-message">Click to view</div>
+    </div>
+  </mat-card-content>
+</mat-card>

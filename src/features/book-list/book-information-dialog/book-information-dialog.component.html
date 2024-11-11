@@ -1,0 +1,20 @@
+<mat-dialog-content>
+  <div class="book-image-wrapper">
+    <img
+      class="book-image"
+      [src]="book.image || 'images/no-image.webp'"
+      alt="Book image"
+    />
+  </div>
+  <div class="book-name">{{ book.name }}</div>
+  <div class="book-info">{{ book.author }}, {{ book.year }}</div>
+  @if (book.description) {
+    <div class="book-description">
+      <strong>Description: </strong>
+      {{ book.description }}
+    </div>
+  }
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-stroked-button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

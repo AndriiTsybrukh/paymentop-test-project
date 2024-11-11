@@ -1,0 +1,28 @@
+@import "colors";
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-left: 40px;
+}
+
+.clear-button-container {
+  width: 48px;
+}
+
+.search-field ::ng-deep {
+  --mdc-filled-text-field-label-text-color: $white;
+  --mdc-filled-text-field-input-text-color: $white-transparent;
+  --mdc-filled-text-field-active-indicator-color: $white;
+  --mdc-filled-text-field-hover-active-indicator-color: $white;
+  --mdc-filled-text-field-container-color: transparent;
+  --mdc-filled-text-field-input-text-placeholder-color: $white-transparent;
+  --mdc-filled-text-field-focus-label-text-color: $white;
+  --mdc-filled-text-field-hover-label-text-color: $white;
+
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+}
