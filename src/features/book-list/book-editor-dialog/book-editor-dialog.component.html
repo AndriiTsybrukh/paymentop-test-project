@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>{{ book ? "Edit" : "Create" }} Book</h2>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field class="form-field">
+      <mat-label>Book Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Author</mat-label>
+      <input matInput formControlName="author" />
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Select Year</mat-label>
+      <input
+        matInput
+        [matDatepicker]="datePicker"
+        [value]="formattedYear"
+        required="true"
+        (dateChange)="onYearSelect($event.value, datePicker)"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="datePicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker
+        #datePicker
+        startView="multi-year"
+        (yearSelected)="onYearSelect($event, datePicker)"
+      >
+      </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        cdkTextareaAutosize
+        formControlName="description"
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="10"
+      ></textarea>
+    </mat-form-field>
+    <ptp-upload-image
+      [file]="form.controls.image.value"
+      (fileChange)="updateImage($event)"
+    ></ptp-upload-image>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="actions">
+  <button mat-stroked-button mat-dialog-close>Cancel</button>
+  <button
+    color="primary"
+    mat-raised-button
+    [mat-dialog-close]="form.value"
+    [disabled]="form.invalid || form.pristine"
+  >
+    {{ book ? "Save" : "Create" }}
+  </button>
+</mat-dialog-actions>

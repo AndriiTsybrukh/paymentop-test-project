@@ -1,0 +1,28 @@
+.book-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 260px;
+  width: 300px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.book-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-info {
+  margin-bottom: 10px;
+}
+
+.book-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.book-description {
+  font-size: 16px;
+}
